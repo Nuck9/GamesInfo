@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { supabase } from './lib/supabase';
 import Auth from './components/Auth';
 import Games from './components/Games';
+import Welcome from './components/Welcome';
 
 function App() {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -28,7 +30,7 @@ function App() {
 
   return (
     <>
-      {!session ? <Auth session={session} /> : <Games session={session} />}
+      {!session ? <Auth session={session} /> : showWelcome ? <Welcome onAccept={() => setShowWelcome(false)} /> : <Games session={session} />}
     </>
   );
 }

@@ -1,0 +1,95 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(188, 171, 174, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(113, 105, 105, 0.05) 0px, transparent 50%);
+  font-family: 'Inter', sans-serif;
+  color: #fbfbfb;
+}
+
+.welcome-card {
+  background: #2d2e2e; /* Graphite */
+  padding: 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid rgba(188, 171, 174, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.welcome-header {
+  margin-bottom: 2rem;
+}
+
+.welcome-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  color: #fbfbfb;
+  letter-spacing: -1px;
+}
+
+.welcome-header p {
+  color: #bcabae; /* Lilac Ash */
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.welcome-content {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.welcome-content p {
+  color: #fbfbfb;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.welcome-content li {
+  color: #bcabae;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.welcome-content li::before {
+  content: '•';
+  color: #fbfbfb;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.btn-accept {
+  width: 100%;
+  padding: 1.1rem;
+  background: #fbfbfb;
+  color: #0f0f0f;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-accept:hover {
+  background: #bcabae;
+  transform: translateY(-2px);
+}
