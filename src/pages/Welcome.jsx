@@ -1,4 +1,4 @@
-import './Welcome.css';
+import '../styles/Welcome.css';
 
 export default function Welcome({ onAccept }) {
   return (
