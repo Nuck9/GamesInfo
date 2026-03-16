@@ -5,11 +5,11 @@ import './Games.css';
 
 export default function Games({ session }) {
 
-  const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [games, setGames] = useState([]); //Aqui se guardan los 100 juegos
+  const [loading, setLoading] = useState(true); // Estado para mostrar "Cargando..." mientras se obtienen los datos
+  const [searchTerm, setSearchTerm] = useState('');// guarda lo que el usuario escribe en la barra de búsqueda
 
-  const [newGame, setNewGame] = useState({
+  const [newGame, setNewGame] = useState({ // Estado para el formulario de creación/edición de juegos
     name: '',
     platforms: '',
     rating: '',
@@ -17,7 +17,7 @@ export default function Games({ session }) {
     image: ''
   });
 
-  const [editingId, setEditingId] = useState(null);
+  const [editingId, setEditingId] = useState(null);// Guarda el ID del juego que quieres cambiar 
 
   useEffect(() => {
     fetchGames();
@@ -28,13 +28,13 @@ export default function Games({ session }) {
       setLoading(true);
 
       const { data, error } = await supabase
-        .from('games')
-        .select('*')
-        .order('released', { ascending: false });
+        .from('games')//busca en la tabla games
+        .select('*')//trae todas las columnas
+        .order('released', { ascending: false });//los ordena de manera ascendente 
 
       if (error) throw error;
 
-      setGames(data || []);
+      setGames(data || []);//guarda los juegos en memoria 
 
     } catch (error) {
       console.error('Error cargando juegos:', error.message);
@@ -43,8 +43,8 @@ export default function Games({ session }) {
     }
   };
 
-  const signOut = async () => {
-    await supabase.auth.signOut();
+  const signOut = async () => {//función para cerrar sesión
+    await supabase.auth.signOut(); 
   };
 
   // CREAR JUEGO
@@ -60,7 +60,7 @@ export default function Games({ session }) {
       return;
     }
 
-    setNewGame({
+    setNewGame({ 
       name: '',
       platforms: '',
       rating: '',
@@ -77,10 +77,10 @@ export default function Games({ session }) {
 
     if (!confirmDelete) return;
 
-    const { error } = await supabase
+    const { error } = await supabase 
       .from('games')
-      .delete()
-      .eq('id', id);
+      .delete()     //busca en la tabla games el juego con el id que le pasamos y lo borra
+      .eq('id', id); 
 
     if (error) {
       console.error(error);
@@ -103,7 +103,7 @@ export default function Games({ session }) {
     const { error } = await supabase
       .from('games')
       .update(newGame)
-      .eq('id', editingId);
+      .eq('id', editingId); //busca en la tabla games el juego con el id que le pasamos y lo actualiza con los datos de newGame
 
     if (error) {
       console.error(error);
@@ -124,7 +124,7 @@ export default function Games({ session }) {
   };
 
   const filteredGames = games.filter(game =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||//filtra los juegos por nombre o plataforma según lo que el usuario escriba en la barra de búsqueda
     (game.platforms && game.platforms.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
@@ -155,14 +155,11 @@ export default function Games({ session }) {
 
       <main className="games-container">
 
-        {/* FORMULARIO CREAR / EDITAR - Cambiado para diseño moderno con labels y grid */}
         <form onSubmit={editingId ? updateGame : createGame} className="create-form">
-          {/* Título dinámico según modo crear/editar */}
           <h2 style={{ marginBottom: '2rem', color: '#fbfbfb', fontSize: '1.8rem', fontWeight: '800' }}>
             {editingId ? 'Editar Juego' : 'Agregar Nuevo Juego'}
           </h2>
 
-          {/* Grid para organizar inputs en columnas */}
           <div className="form-grid">
             <div className="input-group">
               <label>Nombre del juego</label>
@@ -220,7 +217,6 @@ export default function Games({ session }) {
             </div>
           </div>
 
-          {/* Botones centrados, con cancelar al editar */}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button type="submit" className="btn-create">
               {editingId ? "Guardar Cambios" : "Crear Juego"}
