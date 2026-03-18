@@ -8,9 +8,6 @@ import '../styles/Welcome.css';
  * - Explicar brevemente las funcionalidades del sistema
  * - Permitir continuar al flujo principal mediante una acción controlada
  * 
- * Nota para exposición:
- * Este componente es completamente presentacional (stateless),
- * ya que no maneja estado interno ni lógica de negocio.
  */
 export default function Welcome({ onAccept }) {
 
@@ -20,8 +17,6 @@ export default function Welcome({ onAccept }) {
    * - Permite controlar desde afuera cuándo el usuario
    *   deja la pantalla de bienvenida
    * 
-   * Esto evita acoplar la navegación dentro del componente,
-   * siguiendo un enfoque más flexible.
    */
 
   return (

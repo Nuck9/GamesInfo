@@ -12,8 +12,6 @@ import Welcome from './pages/Welcome';
  * - Gestionar el flujo principal de la aplicación (Auth → Welcome → Games)
  * - Escuchar cambios en la sesión del usuario
  * 
- * Nota clave para exposición:
- * Este componente actúa como "orquestador" del flujo de la app.
  */
 function App() {
 

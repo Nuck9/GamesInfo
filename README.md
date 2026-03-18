@@ -1,16 +1,44 @@
-# React + Vite
+# GamesInfo 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GamesInfo** es una aplicación web moderna diseñada para gestionar y organizar una colección personal de videojuegos. Permite a los usuarios llevar un registro detallado de sus títulos favoritos, incluyendo plataformas, calificaciones y fechas de lanzamiento.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Gestión Completa (CRUD):** Añade, visualiza, edita y elimina videojuegos de tu biblioteca de forma sencilla.
+- **Autenticación Segura:** Sistema de inicio de sesión y registro integrado mediante **Supabase Auth**.
+- **Búsqueda Inteligente:** Filtra tus juegos en tiempo real por nombre para encontrar rápidamente lo que buscas.
+- **Interfaz Moderna:** Diseño receptivo (responsive) y atractivo, optimizado para una excelente experiencia de usuario.
+- **Persistencia de Datos:** Todos los cambios se sincronizan en tiempo real con una base de datos en la nube.
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Base de Datos y Auth:** [Supabase](https://supabase.com/)
+- **Estilos:** CSS Vanilla (Custom Properties y Flexbox/Grid)
+- **Iconos:** Lucide React (o similares según implementación)
 
-## Expanding the ESLint configuration
+## 📋 Requisitos Previos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Antes de comenzar, asegúrate de tener instalado:
+- [Node.js](https://nodejs.org/) (versión 18 o superior)
+- Una cuenta en [Supabase](https://supabase.com/) para configurar la base de datos.
+
+## ⚙️ Configuración
+
+1. Clona el repositorio.
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Configura las variables de entorno en un archivo `.env` con tus credenciales de Supabase:
+   ```env
+   VITE_SUPABASE_URL=tu_url_de_supabase
+   VITE_SUPABASE_ANON_KEY=tu_llave_anonima
+   ```
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+---
+Desarrollado con ❤️ para los amantes de los videojuegos.

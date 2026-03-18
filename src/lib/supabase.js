@@ -1,12 +1,9 @@
 /**
- * Configuración de cliente Supabase
- * 
  * Responsabilidad:
  * - Crear e inicializar una instancia del cliente de Supabase
  * - Permitir interacción con:
  *   - Autenticación (Auth)
  *   - Base de datos
- *   - Storage (si se usa)
  */
 
 import { createClient } from "@supabase/supabase-js"
